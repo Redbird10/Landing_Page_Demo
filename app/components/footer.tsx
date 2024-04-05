@@ -8,8 +8,8 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 function FooterCol({title, items}) {
   return (
     <section className="flex flex-col">
-      <div className="text-gray-300 mx-5 my-5">{title}</div>
-      {items.map(item => (<Link href="/" className="text-gray-100 mx-5 my-1">{item}</Link>))}
+      <div className="text-gray-500 mx-5 my-5">{title}</div>
+      {items.map(item => (<Link href="/" className="text-gray-200 mx-5 my-1">{item}</Link>))}
     </section>
   )
 }
@@ -27,7 +27,7 @@ export default function Footer() {
       <div className="px-6 mx-auto max-w-screen-xl">
         <div className="flex justify-between items-center border-t border-gray-700">
           <div className="my-8">
-            <span className="text-gray-300 ml-5 mr-1 my-5">@ 2024 Copyright, All Right Reserved, Made by Seju_ui_ux with</span>
+            <span className="text-gray-500 ml-5 mr-1 my-5">@ 2024 Copyright, All Right Reserved, Made by Seju_ui_ux with</span>
             <FavoriteIcon color="primary" fontSize="small"/>
           </div>
           <div className="my-8">
