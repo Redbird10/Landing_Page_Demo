@@ -6,6 +6,7 @@ import ConfirmationNumberIcon from '@mui/icons-material/ConfirmationNumber';
 import LayersIcon from '@mui/icons-material/Layers';
 import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 import SignalCellularAltIcon from '@mui/icons-material/SignalCellularAlt';
+import Switch from '@mui/material/Switch';
 
 function FeatureTile({Icon, title, desc=""}) {
   return (
@@ -30,6 +31,17 @@ export default function Home() {
           <p className="text-xl text-gray-500 m-1">With lots of unique blocks, you can easily build a page without coding.</p>
           <p className="text-xl text-gray-500 m-1">Build your next consultancy website within few minutes.</p>
         </div>
+        <div className="text-center">
+          <span className="text-xl">Monthly</span>
+          <Switch/>
+          <span className="text-xl">Yearly</span>
+          <div className="inline-block rounded-full bg-indigo-100 text-indigo-700 font-semibold px-3 py-1 mx-5">
+            Save 25%
+          </div>
+        </div>
+        <section>
+          
+        </section>
         <div className="m-20 text-center">
           <h1 className="font-bold text-6xl m-10">Check our features</h1>
           <p className="text-xl text-gray-500 m-1">With lots of unique blocks, you can easily build a page without coding.</p>
