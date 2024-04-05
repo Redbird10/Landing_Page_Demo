@@ -57,12 +57,12 @@ export default function Home() {
     <div>
       <Header/>
       <main className="mx-auto px-6 max-w-screen-xl">
-        <div className="m-20 text-center">
-          <h1 className="font-bold text-6xl m-10">Pricing & Plans</h1>
+        <div className="mt-16 mb-16 text-center">
+          <h1 className="font-bold text-6xl mt-20 mb-10">Pricing & Plans</h1>
           <p className="text-xl text-gray-500 m-1">With lots of unique blocks, you can easily build a page without coding.</p>
           <p className="text-xl text-gray-500 m-1">Build your next consultancy website within few minutes.</p>
         </div>
-        <div className="text-center">
+        <div className="text-center my-12">
           <span className="text-xl">Monthly</span>
           <Switch/>
           <span className="text-xl">Yearly</span>
@@ -75,8 +75,8 @@ export default function Home() {
           <PriceTile title='STANDARD' price='49' btnbg='bg-indigo-700' btntxt='text-white' avail={[true,true,true,true,false]}/>
           <PriceTile title='PREMIUM' price='99' btnbg='bg-indigo-100' btntxt='text-indigo-700' avail={[true,true,true,true,true]}/>
         </section>
-        <div className="m-20 text-center">
-          <h1 className="font-bold text-6xl m-10">Check our features</h1>
+        <div className="mt-24 mb-20 text-center">
+          <h1 className="font-bold text-6xl mt-16 mb-10">Check our features</h1>
           <p className="text-xl text-gray-500 m-1">With lots of unique blocks, you can easily build a page without coding.</p>
           <p className="text-xl text-gray-500 m-1">Build your next consultancy website within few minutes.</p>
         </div>
