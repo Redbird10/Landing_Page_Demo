@@ -37,7 +37,7 @@ function PriceTile({title, price, btnbg, btntxt, avail}) {
       </div>
       <div className="text-gray-500 mb-5">billed monthly</div>
       {features.map((feature, index) => (
-        <div className="my-4">
+        <div key={index} className="my-4">
           {avail[index] ? <CheckIcon sx={{color:"#6fbf73"}} fontSize="small" className="mr-2"/>
           : <CloseIcon color="disabled" fontSize="small" className="mr-2"/> }
           <span className={avail[0] ? '' : "text-gray-500"}>{feature}</span>

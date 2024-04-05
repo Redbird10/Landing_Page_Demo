@@ -9,7 +9,7 @@ function FooterCol({title, items}) {
   return (
     <section className="flex flex-col">
       <div className="text-gray-500 mx-5 my-5">{title}</div>
-      {items.map(item => (<Link href="/" className="text-gray-200 mx-5 my-1">{item}</Link>))}
+      {items.map((item, index) => (<Link key={index} href="/" className="text-gray-200 mx-5 my-1">{item}</Link>))}
     </section>
   )
 }
