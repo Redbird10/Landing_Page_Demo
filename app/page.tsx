@@ -7,6 +7,10 @@ import LayersIcon from '@mui/icons-material/Layers';
 import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 import SignalCellularAltIcon from '@mui/icons-material/SignalCellularAlt';
 import Switch from '@mui/material/Switch';
+import CheckIcon from '@mui/icons-material/Check';
+import CloseIcon from '@mui/icons-material/Close';
+import Link from 'next/link'
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 function FeatureTile({Icon, title, desc=""}) {
   return (
@@ -17,6 +21,33 @@ function FeatureTile({Icon, title, desc=""}) {
         <p className="text-lg text-gray-500">With lots of unique blocks, you can easily build a page without coding.</p>
         <p className="text-lg text-gray-500">Build your next landing page.</p>
       </div>
+    </div>
+  )
+}
+
+function PriceTile({title, price, btnbg, btntxt, avail}) {
+  const features = ['Commercial License','100+ HTML UI Elements','01 Domain Support', '6 Month Premium Service', 'Lifetime Updates']
+  return (
+    <div className="rounded-lg border-solid border p-10 min-w-[22rem]">
+      <div className="text-indigo-700 font-bold">{title}</div>
+      <div className="mt-8 mb-3">
+        <span className="font-bold text-3xl">$</span>
+        <span className="font-bold text-6xl">{price}</span>
+        <span className="text-lg">/ month</span>
+      </div>
+      <div className="text-gray-500 mb-5">billed monthly</div>
+      {features.map((feature, index) => (
+        <div className="my-4">
+          {avail[index] ? <CheckIcon sx={{color:"#6fbf73"}} fontSize="small" className="mr-2"/>
+          : <CloseIcon color="disabled" fontSize="small" className="mr-2"/> }
+          <span className={avail[0] ? '' : "text-gray-500"}>{feature}</span>
+        </div>
+      ))}
+      <Link href="/" className={`inline-flex font-bold px-5 py-4 ${btnbg} ${btntxt} rounded-md`}>
+        Start Free Trial
+        <ArrowForwardIcon className="ml-6"/>
+      </Link>
+      <div className="text-gray-500 mt-4">No credit card required</div>
     </div>
   )
 }
@@ -39,8 +70,10 @@ export default function Home() {
             Save 25%
           </div>
         </div>
-        <section>
-          
+        <section className="flex justify-between mx-auto max-w-screen-xl">
+          <PriceTile title='STARTER' price='19' btnbg='bg-indigo-100' btntxt='text-indigo-700' avail={[true,true,true,false,false]}/>
+          <PriceTile title='STANDARD' price='49' btnbg='bg-indigo-700' btntxt='text-white' avail={[true,true,true,true,false]}/>
+          <PriceTile title='PREMIUM' price='99' btnbg='bg-indigo-100' btntxt='text-indigo-700' avail={[true,true,true,true,true]}/>
         </section>
         <div className="m-20 text-center">
           <h1 className="font-bold text-6xl m-10">Check our features</h1>
