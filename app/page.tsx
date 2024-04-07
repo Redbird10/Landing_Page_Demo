@@ -1,3 +1,4 @@
+'use client';
 import Header from './components/header';
 import Footer from './components/footer';
 import TuneIcon from '@mui/icons-material/Tune';
@@ -11,6 +12,7 @@ import CheckIcon from '@mui/icons-material/Check';
 import CloseIcon from '@mui/icons-material/Close';
 import Link from 'next/link'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import React from 'react';
 
 function FeatureTile({Icon, title, desc=""}) {
   return (
@@ -25,17 +27,17 @@ function FeatureTile({Icon, title, desc=""}) {
   )
 }
 
-function PriceTile({title, price, btnbg, btntxt, avail}) {
+function PriceTile({title, price, btnbg, btntxt, avail, year}) {
   const features = ['Commercial License','100+ HTML UI Elements','01 Domain Support', '6 Month Premium Service', 'Lifetime Updates']
   return (
     <div className="rounded-lg border-solid border p-10 min-w-[22rem]">
       <div className="text-indigo-700 font-bold">{title}</div>
       <div className="mt-8 mb-3">
         <span className="font-bold text-3xl">$</span>
-        <span className="font-bold text-6xl">{price}</span>
-        <span className="text-lg">/ month</span>
+        <span className="font-bold text-6xl">{year ? price*12*0.75 : price}</span>
+        <span className="text-lg">{year?'/ year':'/ month'}</span>
       </div>
-      <div className="text-gray-500 mb-5">billed monthly</div>
+      <div className="text-gray-500 mb-5">{year?'billed yearly':'billed monthly'}</div>
       {features.map((feature, index) => (
         <div key={index} className="my-4">
           {avail[index] ? <CheckIcon sx={{color:"#6fbf73"}} fontSize="small" className="mr-2"/>
@@ -53,6 +55,8 @@ function PriceTile({title, price, btnbg, btntxt, avail}) {
 }
 
 export default function Home() {
+  const [isYearView, setYearView] = React.useState(false);
+
   return (
     <div>
       <Header/>
@@ -64,16 +68,16 @@ export default function Home() {
         </div>
         <div className="text-center my-12">
           <span className="text-xl">Monthly</span>
-          <Switch/>
+          <Switch onChange={(event) => {setYearView(event.target.checked)}} />
           <span className="text-xl">Yearly</span>
           <div className="inline-block rounded-full bg-indigo-100 text-indigo-700 font-semibold px-3 py-1 mx-5">
             Save 25%
           </div>
         </div>
         <section className="flex justify-between mx-auto max-w-screen-xl">
-          <PriceTile title='STARTER' price='19' btnbg='bg-indigo-100' btntxt='text-indigo-700' avail={[true,true,true,false,false]}/>
-          <PriceTile title='STANDARD' price='49' btnbg='bg-indigo-700' btntxt='text-white' avail={[true,true,true,true,false]}/>
-          <PriceTile title='PREMIUM' price='99' btnbg='bg-indigo-100' btntxt='text-indigo-700' avail={[true,true,true,true,true]}/>
+          <PriceTile title='STARTER' price='19' btnbg='bg-indigo-100' btntxt='text-indigo-700' avail={[true,true,true,false,false]} year={isYearView} />
+          <PriceTile title='STANDARD' price='49' btnbg='bg-indigo-700' btntxt='text-white' avail={[true,true,true,true,false]} year={isYearView} />
+          <PriceTile title='PREMIUM' price='99' btnbg='bg-indigo-100' btntxt='text-indigo-700' avail={[true,true,true,true,true]} year={isYearView} />
         </section>
         <div className="mt-24 mb-20 text-center">
           <h1 className="font-bold text-6xl mt-16 mb-10">Check our features</h1>
